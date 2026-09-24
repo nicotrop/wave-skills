@@ -1,7 +1,6 @@
 ---
 name: wave
 description: Work through a .plans/<slug> slice plan one slice at a time in the main tree, in dependency order, tracking progress in state.json. Use when the user wants to run a plan, work the next slice, check slice progress, or mentions wave, slices, or a .plans folder.
-compatibility: Claude Code
 disable-model-invocation: true
 ---
 

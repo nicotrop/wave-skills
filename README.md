@@ -2,11 +2,11 @@
 
 # wave
 
-wave runs a plan to completion in [Claude Code](https://www.claude.com/product/claude-code) (only runtime for now). You break a feature into slices with dependencies, and wave works through them one at a time in dependency order, committing each one, until the work is done or it hits something that needs you.
+wave runs a plan to completion in your coding agent. You break a feature into slices with dependencies, and wave works through them one at a time in dependency order, committing each one, until the work is done or it hits something that needs you.
 
 ## Why I built it
 
-[This workshop](https://www.youtube.com/watch?v=-QFHIoCo-Ko) got me wanting to run [Ralph loops](https://ghuntley.com/ralph/) again. A Ralph loop is a single agent in a shell `while` loop, fresh context each pass, with state surviving in the repo (a TODO/state file plus git history). wave keeps that shape but runs inside your Claude Code session instead of a shell, and swaps the flat TODO list for a dependency graph of slices.
+[This workshop](https://www.youtube.com/watch?v=-QFHIoCo-Ko) got me wanting to run [Ralph loops](https://ghuntley.com/ralph/) again. A Ralph loop is a single agent in a shell `while` loop, fresh context each pass, with state surviving in the repo (a TODO/state file plus git history). wave keeps that shape but runs inside your agent session instead of a shell, and swaps the flat TODO list for a dependency graph of slices.
 
 Planning is already solved. Matt Pocock's [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) / [grill-with-docs](https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs) interrogate an idea until it's sharp, then [to-prd](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-prd) / [to-issues](https://github.com/mattpocock/skills/tree/main/skills/engineering/to-issues) write it up. Those land in your GitHub issue tracker; I wanted to stay local.
 
@@ -26,7 +26,7 @@ It compounds on both: Matt's grilling and dependency-graphed slices for the plan
 npx skills add nicotrop/wave-skills --all
 ```
 
-That installs all three skills. To pick a subset, drop `--all` for an interactive prompt, or target one with `--skill wave`. Add `-g` to install globally across all projects.
+`--all` installs all three skills into every agent the CLI knows about. To choose skills and agents yourself, drop `--all` for an interactive prompt, or target them with `--skill wave` and `--agent claude-code`. Add `-g` to install globally across all projects.
 
 Or install manually:
 
@@ -35,7 +35,7 @@ git clone https://github.com/nicotrop/wave-skills
 cp -r wave-skills/skills/{wave,to-plan,to-slices} ~/.claude/skills/
 ```
 
-Either way the folders land in your Claude Code skills directory (wave is Claude Code only for now).
+The skills are plain `SKILL.md` files with no scripts or runtime behind them, so they work with any agent that supports skills: Claude Code, Codex, Cursor, Gemini CLI and the rest. The manual copy above targets Claude Code; point it at your agent's skills folder instead if you use something else.
 
 ## Skills
 

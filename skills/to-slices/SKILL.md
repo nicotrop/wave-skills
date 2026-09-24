@@ -1,7 +1,6 @@
 ---
 name: to-slices
 description: Break a plan or PRD into independently-grabbable vertical slices written to .plans/ as markdown files. Use when user wants to break down a plan into implementation slices, create action items, or decompose work.
-compatibility: Claude Code
 disable-model-invocation: true
 ---
 
