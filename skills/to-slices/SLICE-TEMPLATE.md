@@ -39,6 +39,6 @@ name the ones detected in step 3 of to-slices.
 
 ## Validation
 
-Steps to complete before marking the slice `review`: run the validation tooling from the skills
+Steps to complete before marking the slice `done`: run the validation tooling from the skills
 above on all changed files, fix every error (warnings ok), and confirm the acceptance criteria are met.
 ```
